@@ -1,0 +1,67 @@
+body {
+  padding: 30px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.wrap {
+	width: 940px;
+	margin: 0 auto;
+}
+
+.header {
+	width: 930px;
+	height: 120px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+
+.header .logo {
+	position: absolute;
+	padding: 20px;
+}
+
+.header .title {
+	padding: 5px;
+}
+
+.container{
+	width: 916px;
+	height: 710px;
+	padding: 12px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	border: 1px solid #ccc;
+}
+
+.container .left {
+	width: 200px;
+	height: 710px;
+	margin-right: 6px;
+	float: left;
+	border: 1px solid #ccc;
+}
+
+.container .center {
+	width: 700px;
+	height: 710px;
+	margin-left: 6px;
+	float: left;
+	border: 1px solid #ccc;
+}
+
+.footer {
+	width: 940px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #ccc;
+}
+
+.footer .copyright {
+	text-align: center;
+	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
