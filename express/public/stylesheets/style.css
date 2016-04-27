@@ -8,6 +8,7 @@ a {
 }
 
 .wrap {
+	max-width: 940px;
 	width: 940px;
 	margin: 0 auto;
 }
@@ -38,17 +39,19 @@ a {
 }
 
 .container .left {
-	width: 200px;
-	height: 710px;
+	width: 182px;
+	height: 682px;
 	margin-right: 6px;
+	padding: 14px;
 	float: left;
 	border: 1px solid #ccc;
 }
 
 .container .center {
-	width: 700px;
-	height: 710px;
+	width: 650px;
+	height: 670px;
 	margin-left: 6px;
+	padding: 20px;
 	float: left;
 	border: 1px solid #ccc;
 }
@@ -65,3 +68,8 @@ a {
 	text-align: center;
 	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+#playlist,audio{ width: 100% }
+.active a{color:#5DB0E6; text-decoration:none;}
+li a{color:#000000; padding:5px;display:block; text-decoration:none;}
+li a:hover{color:#A8C8F9;text-decoration:none;}
