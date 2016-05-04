@@ -15,38 +15,38 @@ block content
             div.row
                 div.col-lg-4
                     ul.list-group
-                        li.list-group-item.active TO-DO
+                        li.list-group-item.active TO-DO -> user's memo or Todolist
                             span.badge= todoTasks.length
                         each val in todoTasks
                             div.input-group
                                 li.list-group-item= val
                                 div.input-group-btn
-                                    form(action='/board/updateTask', method='post')
-                                        input(type='hidden' name='status' value='In-Progress')
-                                        button(type='submit' class='btn btn-info'
-                                                name='contents' value= val) <strong>></strong>
-
-                div.col-lg-4
-                    ul.list-group
-                        li.list-group-item.active In-Progress
-                            span.badge= inProgressTasks.length
-                        each val in inProgressTasks
-                            div.input-group
-                                li.list-group-item= val
-                                div.input-group-btn
-                                    form(action='/board/updateTask', method='post')
-                                        input(type='hidden' name='status' value='Done')
-                                        button(type='submit' class='btn btn-info'
-                                                name='contents' value= val) <strong>></strong>
-
-                div.col-lg-4
-                    ul.list-group
-                        li.list-group-item.active Done
-                            span.badge= doneTasks.length
-                        each val in doneTasks
-                            div.input-group
-                                li.list-group-item= val
-                                div.input-group-btn
                                     form(action='/board/removeTask', method='post')
+                                        button(type='submit' class='btn btn-danger'
+                                                name='contents' value= val) D
+
+                div.col-lg-4
+                    ul.list-group
+                        li.list-group-item.active Service, only admin
+                            span.badge= ServicesTasks.length
+                        each val in ServicesTasks
+                            div.input-group
+                                li.list-group-item= val
+                                div.input-group-btn
+                                    form(action='/board/updateTask', method='post')
+                                        input(type='hidden' name='status' value='Printing')
+                                        button(type='submit' class='btn btn-info'
+                                                name='contents' value= val) <strong>></strong>
+
+                div.col-lg-4
+                    ul.list-group
+                        li.list-group-item.active Printing
+                            span.badge= PrintingTasks.length
+                        each val in PrintingTasks
+                            div.input-group
+                                li.list-group-item= val
+                                div.input-group-btn
+                                    form(action='/board/updateTask', method='post')
+                                        input(type='hidden' name='status' value='Services')
                                         button(type='submit' class='btn btn-danger'
                                                 name='contents' value= val) D
