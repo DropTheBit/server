@@ -3,6 +3,7 @@
  */
 var Task = require('../models/task');
 var todo = require('../services/todo');
+var user = require('../services/user');
 
 // define list() to get all tasks and display
 exports.list = function (req, res) {
@@ -85,6 +86,7 @@ exports.update = function (req, res) {
             console.log('The raw response from MongoDB was ', raw);
         });
     }
+    user.createJson();
     // display all tasks
     res.redirect('/board');
     res.end();
