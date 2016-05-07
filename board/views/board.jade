@@ -7,37 +7,37 @@ block content
         div.jumbotron
             h1 S/W Park BOARD
             p This is Software Park's Board
-            p If you want to create new task, jush push this button!!
-            div.form-group
-                form(action='/board/createTask', method='post')
-                    input(type='text' name='contents' class='form-control')
-                    button(type='submit' class='btn btn-success') Add Task
+            form(action='/board/createTask', method='post')
+                div.input-group
+                    input(type='text' name='contents' class='form-control' placeholder="memo")
+                    div.input-group-btn
+                        button(type='submit' class='btn btn-success') Add Task
             div.row
                 div.col-lg-4
                     ul.list-group
-                        li.list-group-item.active TO-DO -> user's memo or Todolist
+                        li.list-group-item.active TO-DO list
                             span.badge= todoTasks.length
                         each val in todoTasks
                             div.input-group
                                 li.list-group-item= val
-                                div.input-group-btn
+                                span.input-group-btn
                                     form(action='/board/removeTask', method='post')
                                         button(type='submit' class='btn btn-danger'
-                                                name='contents' value= val) D
-
+                                            name='contents' value= val)
+                                            span(class='glyphicon glyphicon-trash')
                 div.col-lg-4
                     ul.list-group
-                        li.list-group-item.active Service, only admin
+                        li.list-group-item.active Service from Server
                             span.badge= ServicesTasks.length
                         each val in ServicesTasks
                             div.input-group
-                                li.list-group-item= val
-                                div.input-group-btn
+                             li.list-group-item= val
+                             div.input-group-btn
                                     form(action='/board/updateTask', method='post')
                                         input(type='hidden' name='status' value='Printing')
                                         button(type='submit' class='btn btn-info'
-                                                name='contents' value= val) <strong>></strong>
-
+                                        name='contents' value= val)
+                                            span(class='glyphicon glyphicon-print')
                 div.col-lg-4
                     ul.list-group
                         li.list-group-item.active Printing
@@ -49,4 +49,5 @@ block content
                                     form(action='/board/updateTask', method='post')
                                         input(type='hidden' name='status' value='Services')
                                         button(type='submit' class='btn btn-danger'
-                                                name='contents' value= val) D
+                                        name='contents' value= val)
+                                            span(class='glyphicon glyphicon-off')

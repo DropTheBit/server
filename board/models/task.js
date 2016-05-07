@@ -7,10 +7,10 @@ var Schema = mongoose.Schema;
 
 // declare task schema
 var taskSchema = new Schema({
-    status: { type: String, default: 'TO-DO'},
+    status: {type: String, default: 'TO-DO'},
     contents: String,
-    createDate: { type: Date, default: Date.now },
-    author: { type: String, default: 'SWPark' }
+    createDate: {type: Date, default: Date.now},
+    author: {type: String, default: 'SWPark'}
 });
 
 //exports model for task-controller
