@@ -1,1 +1,13 @@
-{"status":"USER DATA","contents":["Today's Weather","Today's Weather2"]}
+{
+  "pTime": "0900",
+  "userId": "myID",
+  "status": "USER DATA",
+  "contents": [
+    {
+      "content": "Service1"
+    },
+    {
+      "content": "Service3"
+    }
+  ]
+}

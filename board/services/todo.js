@@ -7,7 +7,6 @@ var fs = require('fs');
 exports.createJson = function () {
     Task.find({status: 'TO-DO'}, function (err, tasks) {
         //console.log('Succeed to get all tasks {' + tasks + '}');
-
         var content = [];
 
         // make task list for each status

@@ -5,13 +5,18 @@ extends layout
 block content
     div.container
         div.jumbotron
-            h1 S/W Park BOARD
-            p This is Software Park's Board
-            form(action='/board/createTask', method='post')
+            h1 Dash board
+            p Set time Set task Get printing
+            form(action='/createTask', method='post')
                 div.input-group
-                    input(type='text' name='contents' class='form-control' placeholder="memo")
+                    div.input-group-btn
+                        button(type='button' name='pTime' class='btn btn-info'
+                        data-toggle='modal' data-target='#bs-modal-sm')
+                            span(class = 'glyphicon glyphicon-time' aria-hidden='true')
+                    input(type='text' name='contents' class='form-control' placeholder='Memo')
                     div.input-group-btn
                         button(type='submit' class='btn btn-success') Add Task
+            p
             div.row
                 div.col-lg-4
                     ul.list-group
@@ -21,7 +26,7 @@ block content
                             div.input-group
                                 li.list-group-item= val
                                 span.input-group-btn
-                                    form(action='/board/removeTask', method='post')
+                                    form(action='/removeTask', method='post')
                                         button(type='submit' class='btn btn-danger'
                                             name='contents' value= val)
                                             span(class='glyphicon glyphicon-trash')
@@ -33,7 +38,7 @@ block content
                             div.input-group
                              li.list-group-item= val
                              div.input-group-btn
-                                    form(action='/board/updateTask', method='post')
+                                    form(action='/updateTask', method='post')
                                         input(type='hidden' name='status' value='Printing')
                                         button(type='submit' class='btn btn-info'
                                         name='contents' value= val)
@@ -46,8 +51,12 @@ block content
                             div.input-group
                                 li.list-group-item= val
                                 div.input-group-btn
-                                    form(action='/board/updateTask', method='post')
+                                    form(action='/updateTask', method='post')
                                         input(type='hidden' name='status' value='Services')
                                         button(type='submit' class='btn btn-danger'
                                         name='contents' value= val)
                                             span(class='glyphicon glyphicon-off')
+
+    script(src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    include setTime

@@ -10,7 +10,7 @@ var taskSchema = new Schema({
     status: {type: String, default: 'TO-DO'},
     contents: String,
     createDate: {type: Date, default: Date.now},
-    author: {type: String, default: 'SWPark'}
+    author: {type: String, default: 'SWPark'},
 });
 
 //exports model for task-controller

@@ -67,28 +67,35 @@ exports.create = function (req, res) {
         todo.createJson();
     });
     // display all tasks
-    res.redirect('/board');
+    res.redirect('/');
     res.end();
 };
 
 exports.update = function (req, res) {
-    if (Task.findOne({contents: req.body.contents, stuats: req.body.status})) {
-        //if (req.body.status == 'Printing' || req.body.status == 'Services') {
-        // update tasks with new status
-        Task.update({
-            contents: req.body.contents
-        }, {
-            status: req.body.status
-        }, function (err, numberAffected, raw) {
-            if (err)
-                throw err;
-            console.log('The number of updated documents was %d', numberAffected);
-            console.log('The raw response from MongoDB was ', raw);
-        });
+    var status = req.body.status;
+    if(!(status == 'Services' || status == 'Printing')){
+        console.log('Detected Hack' + status);
+        return 'Res Detected Hack';
     }
+    // on html, req.body.contents == 'content', req.body.status == 'printing'
+    // MIMT the status to req.body.stauts ==  'Services' and update using this function
+    // toggle the status in db
+
+    //if (req.body.status == 'Printing' || req.body.status == 'Services') {
+    // update tasks with new status
+    Task.update({
+        contents: req.body.contents
+    }, {
+        status: status
+    }, function (err, numberAffected, raw) {
+        if (err)
+            throw err;
+        console.log('The number of updated documents was %d', numberAffected);
+        console.log('The raw response from MongoDB was ', raw);
+    });
     user.createJson();
     // display all tasks
-    res.redirect('/board');
+    res.redirect('/');
     res.end();
 };
 
@@ -112,6 +119,6 @@ exports.remove = function (req, res) {
         todo.createJson();
     });
     // display all tasks
-    res.redirect('/board');
+    res.redirect('/');
     res.end();
 };

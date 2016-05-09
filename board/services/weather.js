@@ -14,7 +14,7 @@ Date.prototype.yyyymmdd = function () {
 
 var privateKey = 'mwzQCewNmEj6er4caoetT%2FpIV%2BgYiRS%2F5kbZIsWm0l1Eni7DArFHnUdYKPrcVyc6WjLKF9%2FAOZGeMwuHwjZ9yg%3D%3D';
 var base_date = (new Date()).yyyymmdd();  // 20160507
-var base_time = (new Date().getHours() < 12) ? '0500' : '1700'; // 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300
+var base_time = (new Date().getHours() <= 12) ? '0500' : '1700'; // 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300
 var nx = '63';  // Jeonju
 var ny = '89';
 
@@ -25,6 +25,7 @@ var url = 'http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/Forecast
     + '&ny=' + ny
     + '&numOfRows=5';
 
+//console.log('date: ' + base_date + ' time: ' + base_time);
 http.get(url, function (res) {
     var data = '';
     res.on('data', function (chunk) {
@@ -33,12 +34,6 @@ http.get(url, function (res) {
     res.on('end', function () {
         var weather = JSON.parse(parser.toJson(data)).response.body.items;
 
-        /*1. 강수확률  %
-         2. 강수형태  PTY[없음(0), 비(1), 비/눈(2), 눈(3)]
-         3. 습도  %
-         4. 하늘상태  SKY[맑음(1), 구름조금(2), 구름많음(3), 흐림(4)]
-         5. 3시간기온  'C
-         */
         var ptyOption = {'0': 'Nothing', '1': 'Raining', '2': 'Raining/Snowing', '3': 'Snowing'};
         var skyOption = {'0': 'Sunny', '1': 'Partly Cloudy', '2': 'Mostly Cloudy', '3': 'Cloudy'};
 
@@ -49,7 +44,7 @@ http.get(url, function (res) {
             'Present temperature is ' + weather.item[4].fcstValue + '\'C'];
 
         var weatherJson = {
-            status: 'Today\'s Weather:',
+            status: 'Today\'s Weather:'+(new Date()).yyyymmdd(),
             contents: content
         };
         fs.writeFile('../public/serviceData/weather.json', JSON.stringify(weatherJson), 'utf8', function (err) {
@@ -58,3 +53,10 @@ http.get(url, function (res) {
         });
     });
 });
+
+/*1. 강수확률  %
+ 2. 강수형태  PTY[없음(0), 비(1), 비/눈(2), 눈(3)]
+ 3. 습도  %
+ 4. 하늘상태  SKY[맑음(1), 구름조금(2), 구름많음(3), 흐림(4)]
+ 5. 3시간기온  'C
+ */

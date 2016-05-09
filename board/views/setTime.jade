@@ -1,0 +1,19 @@
+script.
+    $('#bs-modal-sm').on('show.bs.modal', function () {
+        $('#setTimeInput').focus()
+    })
+
+div(class='modal fade' id='bs-modal-sm' tabindex='-1' role='dialog'
+aria-labelledby='SmallModalLabel' aria-hidden='true')
+    div(class= 'modal-dialog modal-sm')
+        div.modal-content
+            form(action='/setTime', method='post')
+                div.modal-header
+                    button(type='button' class='close' data-dismiss='modal' aria-label="Close")
+                        span(aria-hidden='true') &times;
+                    h4.modal-title Set Printing Time
+                div.modal-body
+                    input(id='setTimeInput' type='text' name='pTime' class='form-control' placeholder='HHMM ex) 0900 is 9:00AM')
+                div.modal-footer
+                    button(type='button' class='btn btn-default' data-dismiss='modal') Close
+                    button(type='submit' class='btn btn-primary' ) Set
