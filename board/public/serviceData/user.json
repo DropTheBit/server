@@ -1,13 +1,1 @@
-{
-  "pTime": "0900",
-  "userId": "myID",
-  "status": "USER DATA",
-  "contents": [
-    {
-      "content": "Service1"
-    },
-    {
-      "content": "Service3"
-    }
-  ]
-}
+{"pTime":"0900","userId":"myID","status":"USER DATA","contents":[]}

@@ -1,10 +1,1 @@
-{
-  "status": "Today's Weather:20160509",
-  "contents": [
-    "Precipitation probability is 30%",
-    "Precipitation Type is Nothing",
-    "Humidity is 60%",
-    "Sky condition is undefined",
-    "Present temperature is 18'C"
-  ]
-}
+{"status":"Today's Weather:20160524","contents":["Precipitation probability is 70%","Precipitation Type is Raining","Humidity is 90%","Sky condition is undefined","Present temperature is 20'C"]}
